@@ -1,0 +1,54 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 So this may be a bit detailed, but much of what I am writing is from memory and whatever I don\'92t fully fully understand or if I realize I am typing stuff in and not know what it does/mean, I\'92ll go into further detail. \
+\
+For simplicity\'92s sake, $ \'85 mean I\'92m at the command line\
+\
+1. $ rails new blogger\
+this creates a new rails application called blogger. The entire rails directory is created with a crazy simple command. Here\'92s a simple run-thru of what was created: {\field{\*\fldinst{HYPERLINK "http://www.railsbridgeboston.org/curriculum/getting_started"}}{\fldrslt http://www.railsbridgeboston.org/curriculum/getting_started}}\
+\
+2. For fun, lets see stuff\'85$ cd blogger (go into the folder), then $ rails s (starts the rails server), then on a browser go to localhost:3000\
+\
+3. ok, enough fun \'85 lets get down and dirty and make a page that shows some control over what we are doing. What will we need to take 
+\b control
+\b0  of to 
+\b view
+\b0  what we want to? :)\
+\
+We first need to make a controller: this nifty feature is what receives requests for an application and where information is collected. \
+\
+After that we create a view page to, well, show off what we\'92ve done.\
+\
+So, type in $ rails g controller home index\
+- the important things are that a \'93home\'94 controller  with an empty method \'93index\'94 & an index.html.erb page for home view was made. \
+\
+in that index page write in <h1>Hello World</h1> \'85 we won\'92t be able to see it YET\
+\
+4. Now we want to remove that original rails home page, $ rm public/index.html.erb and 
+\b root to
+\b0  the new one we made. We do this by updating our routes.rb file. This file tells Rails how to connect incoming requests to controller and actions. This file contains many \'93samples\'94, and the all important rake routes is mentioned. If you run that now it will show that the \'93home#index\'94 is the only available route and thats the one we\'92ll go with by updating the routes.rb to be:\
+\
+root to: \'93home#index\'94 \'85 localhost that and we\'92re well on our way. \
+\
+5. if, at this point lets think about creating new posts. Our rake routes (and common knowledge) tells us to go to localhost:3000/posts/new but when we go there we get a routing error letting us know that there is no PostsController\'85 there is nothing there to \'93serve\'94 the request at hand. \
+\
+$rails g controller posts\
+\
+6. ok, now looking at this on our browser @ localhost:3000/posts/new we now see that the action \'93new\'94 could not be found for PostsController. This means a method needs to be defined inside that controller. \
+\
+posts_controller.rb ~>\
+def new\
+end\
+\
+7. Now we get a \'93missing\'94 template page\'85 probably the easiest fix we\'92ll ever encounter: there is no \'93view\'94. create one, throw some testing text and make sure its all right\
+\
+8. Next lets make this look \'93good\'94\
+to create a form, use a \'93form builder\'94\
+\
+9. Ok, we got that working, but our next problem is that this page is sending this info to posts/new \'85 the very page we are on!\
+\
+How to fix that? }
