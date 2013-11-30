@@ -51,4 +51,42 @@ to create a form, use a \'93form builder\'94\
 \
 9. Ok, we got that working, but our next problem is that this page is sending this info to posts/new \'85 the very page we are on!\
 \
-How to fix that? }
+How to fix that? We have to re route our page. chaining to url: posts_path will now not only redirect to /posts BUT ALSO make this into a \'93POST\'94 request. Running rake routes we see that the POST method is being sent to posts#create. \
+\
+10. updating the posts_controller will only solve some of our problems, we still have an issue of a missing create template\'85 and nothing is really being saved. For that we need a model!\
+\
+11. $rails g model Post\
+in the migration file we see that a table posts has been set to be created but nothing can be sent to it. \
+\
+Looking back at the new page (again, the information here is being sent to this via the updated url) \
+the fields :text and :title are being sent. By writing in t.string :title (t.string means that whatever is being sent in is 255 characters long) and t.text (longer)\
+\
+next we run rake db:migrate to actually create the posts table with one string column and a text column\
+\
+12. Still, at this point we can\'92t save anything to the database as the controller doesn\'92t have any way of doing that yet. \
+\
+13. Next we have to make these inputs accessible\
+  attr_accessible :title, :text\
+\
+14. still at this point we aren\'92t showing anything, but it can be done by modifying our controller to show what is up AND a view page for that show\
+\
+since we want to find a post by the post id, we iterate over the database with this command:\
+Post.find(params[:id])\'85 but to have our show page be able to access that data, we set an instance variable @post to equal that\'85 this @post = Post.find(params[:id])\
+\
+ then we have to create a show page\'85. using the @post instance variable we can show the title and text of each post created (remember, the :id)\
+\
+\
+15. What if we want to see all the posts?\
+for that we go back to our index page and update the index method to show all the posts.\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+}
