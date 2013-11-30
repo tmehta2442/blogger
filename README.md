@@ -1,0 +1,3 @@
+Ok, this is the 2nd take at the blogger ... BUT this time I will document each step, and describe what I am doing.
+
+Anything I dont get I will find documentation for it and learn what it is doing...
