@@ -152,7 +152,15 @@ and in there we\'92ll create a @post instance variable to equal what is found in
 \
 21. but after edit we have to update!\
 \
+22. now to edit a post we need to link to within the @post.each since any edit_post_path needs a particular post\
+because any edit_post_path needs a particular `post`\
+and outside of the each block\
+there's no way for the edit_post_path(post) to know what you mean by `post`\
+the only instance variable you pass to index\
+is @posts\
+which is a collection of posts\
 \
+23. \
  \
 \
 \
