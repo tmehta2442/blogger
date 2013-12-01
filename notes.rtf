@@ -162,7 +162,26 @@ which is a collection of posts\
 \
 23. lets delete stuff :)\
 \
+****\
+24. Now that we have a blog, lets have people leave comments\'85\
+Much like the first step we have to create a model. \
 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth11360\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl0 \clpadr0 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl340
+
+\f1\fs28 \cf2 \cb3 $ rails generate model Comment commenter:string body:text post:references\cf5 \cell \lastrow\row
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 \cb1 \
+this will create the Comment model with commenter & body attr:accessible AND post belonging to posts, while also setting up our db file. One thing I don\'92t get is the add_index \'85 more on that later!!!\
+\
+25. after migrating we need to update the post model since it has many comments\'85\
+\
+26. next up is a matching comments controller\
+\
+27.  \
  \
 \
 \
